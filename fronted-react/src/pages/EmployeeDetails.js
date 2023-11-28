@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Paper, Typography, Grid, Button, TextField, CircularProgress } from '@mui/material';
-import { updateEmployee } from '../services/employeeService'; // Ajusta la ruta según la ubicación real
+import {getEmployeeById, updateEmployee } from '../services/employeeService'; // Ajusta la ruta según la ubicación real
 
 const EmployeeDetails = () => {
   const { id } = useParams();

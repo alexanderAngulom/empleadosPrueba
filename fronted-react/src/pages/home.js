@@ -28,6 +28,7 @@ const Home = () => {
   return (
     <div>
       <h2>Welcome to the Employee Management System</h2>
+   
       <Employees />
     </div>
   );

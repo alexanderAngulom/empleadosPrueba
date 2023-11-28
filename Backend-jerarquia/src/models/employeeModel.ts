@@ -29,7 +29,19 @@ export const getAllEmployeesFromDB = async (): Promise<Employee[]> => {
 export const getEmployeeByIdFromDB = async (id: number): Promise<Employee | null> => {
   const client: PoolClient = await pool.connect();
   try {
-    const result = await client.query('SELECT * FROM employees WHERE id = $1', [id]);
+    const result = await client.query(`SELECT
+    e.id AS employee_id,
+    e.name AS employee_name,
+    e.version AS employee_version,
+    e.superior_id AS employee_superior_id,
+    s.id AS superior_id,
+    s.name AS superior_name,
+    s.version AS superior_version,
+    s.superior_id AS superior_superior_id
+  FROM
+    public.employees e
+  LEFT JOIN
+    public.employees s ON e.superior_id = s.id where e.id=$1;`, [id]);
     return result.rows[0] || null;
   } finally {
     client.release();
