@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "esModuleInterop": true,
+      // ... otras configuraciones ...
+      "module": "CommonJS",
+    },
+    // ... otras configuraciones ...
+  }
+  
