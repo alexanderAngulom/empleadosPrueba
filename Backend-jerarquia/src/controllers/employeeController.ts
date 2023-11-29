@@ -59,6 +59,7 @@ export const updateEmployee = async (req: Request, res: Response) => {
       res.status(404).send('Empleado no encontrado');
       return;
     }
+    console.log("currentEmployee.version",currentEmployee);
 
     const newVersion = currentEmployee.version + 1;
 

@@ -32,7 +32,7 @@ export const getEmployeeByIdFromDB = async (id: number): Promise<Employee | null
     const result = await client.query(`SELECT
     e.id AS employee_id,
     e.name AS employee_name,
-    e.version AS employee_version,
+    e.version AS version,
     e.superior_id AS employee_superior_id,
     s.id AS superior_id,
     s.name AS superior_name,
@@ -64,6 +64,8 @@ export const createEmployeeInDB = async (employee: Employee): Promise<Employee> 
 export const updateEmployeeInDB = async (id: number, newSuperiorId: number, newVersion: number): Promise<Employee | null> => {
   const client: PoolClient = await pool.connect();
   try {
+    console.log("updateEmployeeInDB",newVersion, newSuperiorId, id);
+    
     const result = await client.query(
       'UPDATE employees SET version = $1, superior_id = $2 WHERE id = $3 RETURNING *',
       [newVersion, newSuperiorId, id]
