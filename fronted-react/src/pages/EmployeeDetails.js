@@ -64,7 +64,7 @@ const EmployeeDetails = () => {
 
       let response = await updateEmployee(id, updatedEmployeeData);
       if (response) {
-      //  this.fetchEmployeeDetails();
+        //  this.fetchEmployeeDetails();
         setSuccessMessage('Employee updated successfully!');
         const response = await getEmployeeById(id);
         if (response) {
@@ -97,7 +97,7 @@ const EmployeeDetails = () => {
           margin: '16px',
           maxWidth: '600px',
           backgroundColor: '#F6F7F7',
-          border: '1px solid #ddd', 
+          border: '1px solid #ddd',
           boxShadow: '0 0 10px rgba(0, 0.5, 0, 0.5)',
         }}
       >
@@ -111,25 +111,29 @@ const EmployeeDetails = () => {
                   alt={employee.employee_name}
                   src={`https://www.example.com/path/to/custom/avatar/${employee.employee_id}.jpg`}
                   sx={{
-                    width: 100,
-                    height: 100,
-                    marginBottom: 2,
+                    width: 50,
+                    height: 50,
                     marginRight: 2,
-                    backgroundColor: '#FFCAAF',
+                    background: 'linear-gradient(20deg, #9EC1CF 30%, #F1FBFF 90%)',
+                    borderRadius: '50%',
+                    color: '#000',
+
                   }}
                 />
               </div>
-              <Typography variant="h4" color="primary" gutterBottom>
+              <Typography sx={{ marginRight: 2 }} variant="h4" color="black" gutterBottom>
                 {employee.employee_name}
               </Typography>
+              <Typography color="#9EC1CF" variant="subtitle1">
+                Version: {employee.version}
+              </Typography>
             </Box>
+            <Grid item xs={12}>
+              <Typography color="#00B7B7" variant="h4" sx={{ marginTop: 8, display: 'flex', alignItems: 'center' }} >
+                Superior data:
+              </Typography>
+            </Grid>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <Typography color="primary" variant="subtitle1">
-                  Version: {employee.version}
-                </Typography>
-              </Grid>
-
               <Grid item xs={12}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Avatar
@@ -140,20 +144,18 @@ const EmployeeDetails = () => {
                       height: 50,
                       marginRight: 2,
                       backgroundColor: '#F8EBFF',
+                      color: '#000',
                     }}
                   />
-                  <Typography color="textSecondary" variant="subtitle1">
-                    Superior Name: {employee.superior_name}
+                  <Typography color="textSecondary" sx={{ marginRight: 2 }} variant="subtitle1">
+                    {employee.superior_name}
                   </Typography>
-
-
+                  <Typography color="#C6C5C5" variant="subtitle1">
+                    Superior identification number:  {employee.employee_superior_id}
+                  </Typography>
                 </Box>
               </Grid>
-              <Grid item xs={12}>
-                <Typography color="#00B7B7" variant="subtitle1">
-                  Superior identification number:  {employee.employee_superior_id}
-                </Typography>
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   label="Nuevo Superior ID"
@@ -170,7 +172,21 @@ const EmployeeDetails = () => {
                   onClick={handleUpdate}
                   disabled={loading}
                   startIcon={<SaveIcon />}
-                  sx={{ marginTop: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  sx={{
+                    marginTop: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(40deg, #98FB98 30%, #2E8B57 90%)',
+                    boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
+                    color: 'black',
+                    padding: '8px 16px',
+                    borderRadius: '4px',
+                    transition: 'background 0.3s ease',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #2E8B57 30%, #98FB98 90%)',
+                    },
+                  }}
                 >
                   Update Employee
                 </Button>
