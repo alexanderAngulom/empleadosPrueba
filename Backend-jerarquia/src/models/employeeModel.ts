@@ -13,7 +13,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'jerarquia',
   password: 'admin',
-  port: 5434,
+  port: 5432,
 });
 
 export const getAllEmployeesFromDB = async (): Promise<Employee[]> => {
