@@ -41,7 +41,7 @@ INSERT INTO employees (name, version, superior_id) VALUES ('Maria 7', 1, 3);
 ## BACKEND:
 Se crea un backend con express, Typescript, postgres y swagger UI con sus demás componentes para ejecutar el backend.
 
-Descargar proyecto https://github.com/alexanderAngulom/empleadosPrueba/
+Descargar proyecto https://github.com/alexanderAngulom/empleadosPrueba/tree/main/Backend-jerarquia
 ### `npm install`
 
 ### `npm run dev`
@@ -65,7 +65,7 @@ Existen 2 maneras, por medio de la api directa que se puede encontrar documentad
 Se creó un frontend en react.
 
 
-Descargar proyecto https://github.com/alexanderAngulom/empleadosPrueba/
+Descargar proyecto https://github.com/alexanderAngulom/empleadosPrueba/tree/main/fronted-react
 ### `npm install`
 ### `npm start`
 
